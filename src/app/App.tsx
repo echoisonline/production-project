@@ -6,6 +6,7 @@ import { classNames } from "shared/lib/classNames/classNames";
 import { useTheme } from "./providers/ThemeProvider";
 import { AboutPage } from "pages/AboutPage";
 import { MainPage } from "pages/MainPage";
+import AppRouter from "./providers/router";
 
 export enum Theme {
   LIGHT = "light",
@@ -20,12 +21,7 @@ const App = () => {
       <button onClick={toggleTheme}>TOGGLE THEME</button>
       <Link to={"/"}>Главная</Link>
       <Link to={"/about"}>О сайте</Link>
-      <Suspense fallback={<div>Loading...</div>}>
-        <Routes>
-          <Route path={"/"} element={<MainPage />}></Route>
-          <Route path={"/about"} element={<AboutPage />}></Route>
-        </Routes>
-      </Suspense>
+      <AppRouter></AppRouter>
     </div>
   );
 };
